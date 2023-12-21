@@ -1,0 +1,43 @@
+class Queue:
+    def __init__(self, max_size):
+        self.items = []
+        self.max_size = max_size
+
+    def enqueue(self, data):
+        if self.isFull():
+            print("Error: Queue is full")
+        else:
+            self.items.append(data)
+            print(f'Added: {data}')
+
+    def dequeue(self):
+        if self.isEmpty():
+            print("Error: Queue is empty")
+        else:
+            return self.items.pop(0)
+
+    def front(self):
+        if self.isEmpty():
+            print("Error: Queue is empty")
+        else:
+            return self.items[0]
+
+    def isEmpty(self):
+        return len(self.items) == 0
+
+    def isFull(self):
+        return len(self.items) == self.max_size
+
+    def size(self):
+        return len(self.items)
+
+
+
+queue = Queue(5)
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+print(queue.dequeue()) # Outputs: 1
+print(queue.front())    # Outputs: 2
+print(queue.size())     # Outputs: 2
+print(queue.isFull())   # Outputs: False
